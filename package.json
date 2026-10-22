@@ -1,0 +1,54 @@
+{
+  "name": "dsh-modeltrace",
+  "version": "0.1.2",
+  "description": "ModelTrace 后台模型指纹校验：消息或时间调度、上下文裁决与可选悬浮窗，支持实验性极简 DSH 会话。",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": {
+      "types": "./lib/client.d.ts",
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "assets",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node test/scorer-regression.mjs && node test/verdict-threshold.mjs && node test/source-kind-regression.mjs && node test/cadence-background.mjs && node test/session-probe.mjs && node test/gate-e2e.mjs && node test/plugin-load.mjs && node test/status-api.mjs && node test/settings-visibility.mjs && node test/client-bundle.mjs && node test/client-bundle-stub.mjs",
+    "test:client-host": "node test/client-bundle-host-resolve.mjs && node test/theme-contrast.mjs",
+    "test:browser": "node test/client-window-browser.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-settings-plugins",
+        "@deepseek-ai/dsh-client-ui-renderer"
+      ]
+    }
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@deepseek-ai/schemastery": "^3.18.1"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.2",
+    "@deepseek-ai/dsh-commands": ">=0.1.5-0 <0.2.0 || >=0.1.6-0 <0.2.0 || >=0.1.7-0 <0.2.0",
+    "@deepseek-ai/dsh-llm": ">=0.1.5-0 <0.2.0 || >=0.1.6-0 <0.2.0 || >=0.1.7-0 <0.2.0",
+    "@deepseek-ai/dsh-tools": ">=0.1.5-0 <0.2.0 || >=0.1.6-0 <0.2.0 || >=0.1.7-0 <0.2.0",
+    "@deepseek-ai/dsh-scope": ">=0.1.5-0 <0.2.0 || >=0.1.6-0 <0.2.0 || >=0.1.7-0 <0.2.0",
+    "@deepseek-ai/dsh-system-prompt": ">=0.1.5-0 <0.2.0 || >=0.1.6-0 <0.2.0 || >=0.1.7-0 <0.2.0"
+  },
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  }
+}
