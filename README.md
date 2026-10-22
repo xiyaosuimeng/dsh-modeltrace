@@ -44,6 +44,17 @@ node test/plugin-load.mjs
 node test/scorer-regression.mjs
 ```
 
+
+## Acknowledgements
+
+The challenge design (numeric probes with variants, background-noise prefix
+paragraphs, calibration-table approach) is aligned with and partly adapted from
+[ModelTrace](https://github.com/xqy2006/ModelTrace) by xqy2006, which is
+distributed under the MIT License.
+
+- Upstream: <https://github.com/xqy2006/ModelTrace>
+- Upstream license: MIT
+
 ## License
 
 MIT
