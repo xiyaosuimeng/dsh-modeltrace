@@ -1,5 +1,7 @@
 # dsh-modeltrace
 
+![check](https://github.com/xiyaosuimeng/dsh-modeltrace/actions/workflows/check.yml/badge.svg)
+
 Background model-fingerprint verification for DSH.
 
 ## What it does
